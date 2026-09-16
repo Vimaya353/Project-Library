@@ -39,7 +39,7 @@ function displayBooks(){
 
 displayBooks();
 
-const newBookButton = document.querySelector("#new-book-button");
+const newBookButton = document.querySelector("#new-book-btn");
 const bookDialog = document.querySelector("#book-dialog");
 
 newBookButton.addEventListener("click", () => {
@@ -47,6 +47,7 @@ newBookButton.addEventListener("click", () => {
 });
 
 const closeDialogButton = document.querySelector("#close-dialog");
+
 closeDialogButton.addEventListener("click", () => {
     bookDialog.close();
 });
