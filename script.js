@@ -27,13 +27,30 @@ function displayBooks(){
 
         bookCard.classList.add("book-card");
 
+        bookCard.dataset.id = book.id;
+
         bookCard.innerHTML = `
             <h2>${book.title}</h2>
             <p>Author: ${book.author}</p>
             <p>Pages: ${book.pages}</p>
             <p>${book.read ? "Read" : "Not Read"}</p>
+            <button class="remove-book">Remove</button>
         `;
         library.appendChild(bookCard);
+    });
+
+    const removeButtons = document.querySelectorAll(".remove-book");
+
+    removeButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const bookCard = button.parentElement;  
+            const bookId = bookCard.dataset.id;
+
+            const bookIndex = myLibrary.findIndex(book => book.id === bookId);
+
+            myLibrary.splice(bookIndex, 1);
+            displayBooks();
+        });
     });
 }
 
@@ -67,7 +84,7 @@ bookForm.addEventListener("submit", (event) => {
     displayBooks();
 
     bookDialog.close();
-    
+
     bookForm.reset();
 });
 
