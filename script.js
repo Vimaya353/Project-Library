@@ -23,7 +23,7 @@ function displayBooks(){
     library.innerHTML = "";
 
     myLibrary.forEach(book => {
-        const bookElement = document.createElement("div");
+        const bookCard = document.createElement("div");
 
         bookCard.classList.add("book-card");
 
@@ -33,7 +33,7 @@ function displayBooks(){
             <p>Pages: ${book.pages}</p>
             <p>${book.read ? "Read" : "Not Read"}</p>
         `;
-        library.appendChild(bookElement);
+        library.appendChild(bookCard);
     });
 }
 
