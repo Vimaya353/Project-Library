@@ -1,57 +1,208 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
 }
 
+
+
 header {
+    background-color: #125a08;
+    color: white;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
 }
 
 header h1 {
-    margin: 0;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 32px;
 }
 
 #new-book-btn {
-    background-color: #333;
+    background-color: #0ce704;
     color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#new-book-btn:hover {
+    background-color: #2980b9;
+}
+
+
+
+main {
+    padding: 40px;
 }
 
 #library {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+
 
 .book-card {
     background-color: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .book-card h2 {
-    margin-top: 0;
+    color: #2c3e50;
+    font-size: 22px;
 }
 
 .book-card p {
-    margin: 8px 0;
+    font-size: 16px;
+}
+
+.book-card p:last-of-type {
+    font-weight: bold;
+}
+
+
+
+.book-card button {
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toggle-read {
+    background-color: #0ddbea;
+    color: white;
+}
+
+.toggle-read:hover {
+    background-color: #2121d6;
+}
+
+.remove-book {
+    background-color: #f2f204;
+    color: white;
+}
+
+.remove-book:hover {
+    background-color: #cde228;
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    max-width: 90%;
+    margin: auto;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+
+#book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#book-form div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#book-form label {
+    font-weight: bold;
+}
+
+#book-form input[type="text"],
+#book-form input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#book-form input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+#book-form input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+#book-form button {
+    border: none;
+    padding: 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#book-form button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+}
+
+#book-form button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+#close-dialog {
+    background-color: #95a5a6;
+    color: white;
+}
+
+#close-dialog:hover {
+    background-color: #7f8c8d;
+}
+
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    #library {
+        grid-template-columns: 1fr;
+    }
 }
