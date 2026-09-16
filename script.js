@@ -51,3 +51,23 @@ const closeDialogButton = document.querySelector("#close-dialog");
 closeDialogButton.addEventListener("click", () => {
     bookDialog.close();
 });
+
+const bookForm = document.querySelector("#book-form");
+
+bookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const read = document.querySelector("#read").checked;
+
+    addBookToLibrary(title, author, pages, read);
+
+    displayBooks();
+
+    bookDialog.close();
+    
+    bookForm.reset();
+});
+
