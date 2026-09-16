@@ -8,6 +8,10 @@ function Book(title,author,pages,read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
@@ -34,6 +38,7 @@ function displayBooks(){
             <p>Author: ${book.author}</p>
             <p>Pages: ${book.pages}</p>
             <p>${book.read ? "Read" : "Not Read"}</p>
+            <button class="toggle-read">Toggle Read</button>
             <button class="remove-book">Remove</button>
         `;
         library.appendChild(bookCard);
@@ -49,6 +54,21 @@ function displayBooks(){
             const bookIndex = myLibrary.findIndex(book => book.id === bookId);
 
             myLibrary.splice(bookIndex, 1);
+            displayBooks();
+        });
+    });
+
+    const toggleReadButtons = document.querySelectorAll(".toggle-read");
+
+    toggleReadButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const bookCard = button.parentElement;  
+            const bookId = bookCard.dataset.id;
+
+            const book = myLibrary.find(book => book.id === bookId);
+
+            book.toggleRead();
+            
             displayBooks();
         });
     });
